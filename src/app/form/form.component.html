@@ -1,0 +1,20 @@
+<div class="row mt-5">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Title ..." formControlName="title">
+            <div class="mb-0 mt-2 text-danger" *ngIf="!form.get('title').valid && form.get('title').touched">
+                <span *ngIf="form.get('title').hasError('required')">Title is required</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <textarea type="text" class="form-control" rows="5" placeholder="Content ...."
+                formControlName="content"></textarea>
+            <div class="mb-0 mt-2 text-danger" *ngIf="!form.get('content').valid && form.get('content').touched">
+                <span *ngIf="form.get('content').hasError('required')">Content is required</span>
+            </div>
+        </div>
+        <button type="submit" class="btn {{udpateRecord ? 'btn-primary':'btn-success'}}">
+            {{udpateRecord ? 'Update Todo' : 'Create Todo'}}
+        </button>
+    </form>
+</div>

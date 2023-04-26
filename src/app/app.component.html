@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <!-- Todo Options -->
+  <div class="row justify-content-between">
+    <div class="col-md-8">
+      <app-search (searchKey)="getSearchKey($event)"></app-search>
+    </div>
+    <div class="col-md-2">
+      <button class="btn {{showForm ? 'btn-danger':'btn-success'}} w-100" (click)="toggleForm()">
+        {{showForm ? 'Close Form' : 'Add Todo'}}
+      </button>
+    </div>
+  </div>
+
+  <!-- Todo Lists -->
+  <app-list [todos]="todoList" *ngIf="!showForm" (editId)="getEditIdFromList($event)"
+    (deleteId)="getDeleteIdFromList($event)">
+  </app-list>
+
+  <!-- Todo Form -->
+  <app-form *ngIf="showForm" [udpateRecord]="todoChoosenRecord" (newData)="getNewData($event)"
+    (udpateData)="getUpdateData($event)"></app-form>
+</div>

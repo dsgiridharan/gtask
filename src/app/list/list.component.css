@@ -1,0 +1,13 @@
+.content,
+h5 {
+  display: inline-block;
+  width: 90%;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+i {
+  cursor: pointer;
+}
